@@ -18,16 +18,18 @@ xhr.onload = function(){
         let articles = json.articles
         // console.log(articles)
         let newsHtml = ""
-        articles.forEach(function(element){
+        articles.forEach(function(element, index){
+            console.log(element, index)
                 let news = `<div class="accordion-item">
                                 <h2 class="accordion-header" id="headingOne">
                                     <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    ${index+=1}. 
                                     ${element["title"]}
                                     </button>
                                 </h2>
                                 <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                     <div class="accordion-body">
-                                    ${element["content"]}
+                                    ${element["content"]}.<a href="${element["url"]}" target="_blank"> Read more. </a>
                                     </div>
                                 </div>
                                 </div>
