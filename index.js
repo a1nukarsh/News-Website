@@ -19,25 +19,21 @@ xhr.onload = function(){
         // console.log(articles)
         let newsHtml = ""
         articles.forEach(function(element){
-            
-        });
-        for (let news in articles){
-            console.log(articles[news])
-            let news = `<div class="accordion-item">
-                            <h2 class="accordion-header" id="headingOne">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                ${articles[title]}
-                                </button>
-                            </h2>
-                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                ${articles[news]}
+                let news = `<div class="accordion-item">
+                                <h2 class="accordion-header" id="headingOne">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    ${element["title"]}
+                                    </button>
+                                </h2>
+                                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                    ${element["content"]}
+                                    </div>
                                 </div>
-                            </div>
-                            </div>
-                        </div>`
-            newsHtml += news
-        }
+                                </div>
+                            </div>`
+                newsHtml += news
+        });
         newsAccordion.innerHTML = newsHtml
     }
     else{
